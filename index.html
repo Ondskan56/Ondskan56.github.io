@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-173435901-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-173435901-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="Noxal Music" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://noxalmusic.com/" />
+    <meta property="og:image" content="images/bass.png" />
+    <meta property="og:description" content="Music created by Noxal" />
+
+    <style>
+        @font-face {
+            font-family: Roboto;
+            src: url('fonts/Roboto-Thin.ttf');
+        }
+
+        body {
+            background-color: black;
+            text-align: center;
+            position: relative;
+            color: white;
+                   font-family: Roboto;
+        }
+
+       
+    a{
+        color: unset;
+ 
+    }
+        .ready-player-1 {
+            margin: auto;
+        }
+        #wrapper{
+            max-width: 480px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1, h2, h3 {
+       font-weight: normal;
+            
+        }
+
+     
+      
+
+        .astext {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+        #logo{
+
+        width: 75%;
+        margin: 0 auto;
+        position: relative;
+        display: block;
+
+        }
+        h1,h2{
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+        }
+        h1{
+                background-image: url(images/Asset9.png);
+    background-size: contain;
+    height: 8em;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+        }
+        h1 span, h2 span{
+            /*flex: 1;*/
+            font-size: 20px;
+            /*padding: 0 .5em;*/
+            /*margin: 0 .5em;*/
+             line-height: 1;
+        }
+   /*     span.bordered{
+            border-left: 1px solid white;
+            border-right: 1px solid white;
+            margin-right: -1px;
+        }*/
+    header{
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        width: 100%;
+        text-align: center;
+    }
+        .musicPlayer {
+            width: 100%;
+        }
+
+        .musicPlayer audio {
+            margin: 0 auto;
+            display: table;
+        }
+
+        
+        #bass{
+            width: 100%;
+            position: relative;
+        }
+        html,
+        body {
+            overflow-x: hidden;
+        }
+
+footer{
+
+
+    margin-top: 5em;
+    font-size: 1em;
+
+}
+        /*Media Queries */
+                  @media screen and (max-width: 300px) {
+
+                       h1 span, h2 span{
+           
+            font-size: 14px;}
+}
+   
+                @media screen and (max-width: 375px) {
+
+                       h1 span, h2 span{
+           
+            font-size: 16px;}
+}
+   
+    @media screen and (max-width: 600px) {
+
+    #logo{
+        height: 4em;
+    }
+    }
+ 
+    </style>
+    <title>Noxal Music</title>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1 id="logo" alt="Logo">
+        </h1>
+        <br>
+        <div class="songs-and-picture">
+            <header>
+                <h2>
+                    <span id="emptiness" onclick="playSong('emptiness')" class="astext">
+                        Emptiness
+                    </span>
+                    <span>|</span>
+                    <span id="monster" onclick="playSong('monster')" class="astext bordered">
+                        Monster
+                    </span>
+                    <span>|</span>
+                    <span id="project32" onclick="playSong('project32')" class="astext">
+                        Hopeless
+                    </span>
+                    <span>|</span>
+                    <span id="solitude" onclick="playSong('solitude')" class="astext">
+                        Solitude
+                    </span>
+                </h2>
+            </header>
+            <img src="images/bass.png" id="bass" alt="Bass">
+        </div>
+        <h3 id="songText">Noxal - Solitude</h2>
+            <div class="musicPlayer">
+                <div>
+                    <audio controls id="playerContainer" controls controlsList="nodownload">
+                        <source src="mp3/solitude.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+            <footer>
+               <!--  <h3 class="contactText">Contact:</h3> -->
+                   <span>Contact me at</span> <a href="mailto:noxalofficial@gmail.com" alt="Noxal Email">noxalofficial@gmail.com</a>
+            </footer>
+    </div>
+    </div>
+    <script>
+    function playSong(songName) {
+        console.log(songName);
+        var sound = document.getElementById('playerContainer');
+        sound.controls = 'controls';
+        sound.type = 'audio/mpeg';
+
+        switch (songName) {
+            case "emptiness":
+                sound.src = 'mp3/emptiness.mp3';
+                document.getElementById('songText').textContent = "Noxal - Emptiness";
+                break;
+            case "monster":
+                sound.src = 'mp3/monster.mp3';
+                document.getElementById('songText').textContent = "Noxal - Monster";
+                break;
+            case "project32":
+                sound.src = 'mp3/hopeless.mp3';
+                document.getElementById('songText').textContent = "Noxal - Hopeless";
+                break;
+            case "solitude":
+            sound.src = 'mp3/solitude.mp3';
+            document.getElementById('songText').textContent = "Noxal - Solitude";
+            break;
+            default:
+                // code block
+        }
+        sound.play();
+    }
+    </script>
+</body>
+
+</html>
